@@ -1,52 +1,123 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <math.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main() {
+    int option;
+    double num, num2, result;
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    printf("Scientific Calculator\n");
 
-# Precompiled Headers
-*.gch
-*.pch
+    while (1) {
+        printf("\nSelect an operation:\n");
+        printf("1. Addition\n");
+        printf("2. Substarction\n");
+        printf("3. Multiplication\n");
+        printf("4. Division\n");
+        printf("5. Square Root\n");
+        printf("6. Exponentiation\n");
+        printf("7. Logarithm (base 10)\n");
+        printf("8. Natural Logarithm (base e)\n");
+        printf("9. Logarithm (given base)\n");
+        printf("10. Sine\n");
+        printf("11. Cosine\n");
+        printf("12. Tangent\n");
+        printf("13. Cosecant\n");
+        printf("14. Secant\n");
+        printf("15. Cotangent\n");
+        printf("16. Exit\n");
+        printf("Enter your option: ");
+        scanf("%d", &option);
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+        if (option == 16) {
+            printf("Thank you for using the calculator. Goodbye!\n");
+            break;
+        }
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+        printf("Enter a number: ");
+        scanf("%lf", &num);
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+        switch (option) {
+            case 1:
+                printf("Enter another numbber :");
+                scanf("%lf", &num2);
+                result = num+num2;
+                printf("Addition: %lf\n", result);
+                break;
+            case 2:
+                printf("Enter another numbber :");
+                scanf("%lf", &num2);
+                result = num-num2;
+                printf("Subtraction: %lf\n", result);
+                break;
+            case 3:
+                printf("Enter another numbber :");
+                scanf("%lf", &num2);
+                result = num*num2;
+                printf("Multiplication: %lf\n", result);
+                break;
+            case 4:
+                printf("Enter another numbber :");
+                scanf("%lf", &num2);
+                result = num/num2;
+                printf("Division: %lf\n", result);
+                break;      
+            case 5:
+                result = sqrt(num);
+                printf("Square Root: %lf\n", result);
+                break;
+            case 6:
+                printf("Enter the exponenet:");
+                scanf("%lf", &num2);
+                result = pow(num, num2);
+                printf("Exponentiation: %lf\n", result);
+                break;
+            case 7:
+                result = log10(num);
+                printf("Logarithm (base 10): %lf\n", result);
+                break;
+            case 8:
+                result = log(num);
+                printf("Natural Logarithm (base e): %lf\n", result);
+                break;
+            case 9:
+                printf("Enter the base:");
+                scanf("%lf", &num2);
+                result = log(num)/log(num2);
+                printf("Logarithm (base %lf): %lf\n", num2, result);
+                break;
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+            case 10:
+                result = sin(num);
+                printf("Sine: %lf\n", result);
+                break;
+            case 11:
+                result = cos(num);
+                printf("Cosine: %lf\n", result);
+                break;
+            case 12:
+                result = tan(num);
+                printf("Tangent: %lf\n", result);
+                break;
+            case 13:
+                result = 1/sin(num);
+                if (result==0){printf("Cosecant is undefined");}
+                else{printf("Cosecant: %lf\n", result);}
+                break;
+            case 14:
+                result = 1/cos(num);
+                if (result==0){printf("Secant is undefined");}
+                else{printf("Secant: %lf\n", result);}
+                break;
+            case 15:
+                result = 1/tan(num);
+                if (result==0){printf("Cotangent is undefined");}
+                else{printf("Cotangent: %lf\n", result);}
+                break;    
+            default:
+                printf("Invalid option. Please try again.\n");
+                break;
+        }
+    }
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    return 0;
+}
